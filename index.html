@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Play / App Store 商店素材违规内容清单</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --ink:#1a1d21; --ink2:#4a5158; --ink3:#767f88;
+    --line:#e3e7eb; --brand:#1a73e8;
+    --red:#d93025; --red-bg:#fce8e6;
+    --amber:#e37400; --amber-bg:#fef7e0;
+    --green:#1e8e3e; --green-bg:#e6f4ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    font-size:14px;line-height:1.7;}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 28px 80px;}
+  header{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:8px;}
+  h1{font-size:26px;margin:0 0 6px;letter-spacing:-.3px;}
+  .sub{color:var(--ink3);font-size:13px;}
+  .tagbar{margin:14px 0 30px;display:flex;gap:8px;flex-wrap:wrap;}
+  .tag{font-size:12px;padding:3px 10px;border-radius:12px;background:#eef1f4;color:var(--ink2);}
+  h2{font-size:19px;margin:38px 0 6px;padding-left:11px;border-left:4px solid var(--brand);}
+  .lead{color:var(--ink2);margin:0 0 14px;font-size:13.5px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin:14px 0;}
+  table{width:100%;border-collapse:collapse;background:var(--card);
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px;}
+  th{background:#f0f3f6;text-align:left;padding:11px 12px;font-weight:600;
+    border-bottom:1px solid var(--line);white-space:nowrap;}
+  td{padding:10px 12px;border-bottom:1px solid #f0f2f4;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .lv{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600;white-space:nowrap;display:inline-block;}
+  .lv-h{background:var(--red-bg);color:var(--red);}
+  .lv-m{background:var(--amber-bg);color:var(--amber);}
+  code{background:#f0f3f6;padding:1px 5px;border-radius:3px;font-size:12px;
+    font-family:ui-monospace,Consolas,monospace;}
+  ul{margin:0;padding-left:20px;}
+  li{margin:3px 0;}
+  .warn{background:var(--red-bg);border-left:4px solid var(--red);padding:12px 16px;border-radius:6px;margin:14px 0;font-size:13.5px;}
+  .note{background:#eef4fd;border-left:4px solid var(--brand);padding:10px 14px;border-radius:6px;margin:14px 0;font-size:13px;}
+  footer{margin-top:46px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--ink3);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Google Play / App Store 商店素材违规内容清单</h1>
+  <div class="sub">适用对象：DramaBox 等出海短剧 App · 覆盖图标、截图、Feature Graphic / 预览视频封面、宣传图</div>
+</header>
+<div class="tagbar">
+  <span class="tag">更新：2026-10-24</span>
+  <span class="tag">依据：Google Play Metadata Policy / Store Listing Best Practices / 不当内容政策</span>
+  <span class="tag">依据：Apple App Review Guidelines 1.1、1.4、2.3、5.2</span>
+</div>
+
+<!-- ============ 0 ============ -->
+<h2>0. 三条基本规则</h2>
+<div class="card">
+  <ul>
+    <li><b>判定基准不同。</b>Google 卡「内容合规」（素材须适合普通受众）；Apple 卡「真实性 + 4+ 分级」——2.3.8 规定即便 App 是 17+，图标、截图、预览仍须保持 4+。</li>
+    <li><b>商店素材 ≠ 剧内素材。</b>两套分级标准，必须物理隔离。</li>
+    <li><b>后果不对等。</b>Google 逐级升级至账号封禁；Apple 2.3.1(b) 对误导性营销可直接终止开发者资格。</li>
+  </ul>
+</div>
+
+<!-- ============ 1 ============ -->
+<h2>1. 短剧高危场景（先看这个）</h2>
+<div class="warn"><b>一句话原则：</b>商店素材按「能给 4 岁小孩看」做，剧内素材按剧集分级走。别让设计从剧照库里随手截图。</div>
+
+<table>
+  <thead>
+    <tr><th style="width:20%">场景</th><th>高危素材举例</th><th style="width:22%">触发条款</th><th style="width:9%">风险</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>擦边剧照</b></td>
+      <td>低胸/深V、湿身、泳装、撕扯衣物、吻戏床戏特写、掐脖壁咚构图</td>
+      <td>GP 性暗示；Apple 2.3.8 / 1.1.4</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>复仇暴力</b></td>
+      <td>血迹、持刀特写、枪口对准人、掌掴、车祸现场</td>
+      <td>GP 图形暴力；Apple 2.3.8 / 1.1.2</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>未成年人形象</b></td>
+      <td>童星、校服学生装角色出现在亲密或暴力画面中</td>
+      <td>GP 危害儿童；Apple 1.1</td>
+      <td><span class="lv lv-h">封禁级</span></td>
+    </tr>
+    <tr>
+      <td><b>虚假免费承诺</b></td>
+      <td>「免费看全集」「不花钱解锁」，实际需付费解锁</td>
+      <td>GP 欺骗行为；Apple 2.3.1 / 2.3.2</td>
+      <td><span class="lv lv-h">封禁级</span></td>
+    </tr>
+    <tr>
+      <td><b>价格与促销</b></td>
+      <td>图上出现折扣、首充、返现、限时免费</td>
+      <td>GP Metadata；Apple 2.3.7</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>排名与口碑</b></td>
+      <td>「Top1」「爆款 No.1」「千万用户选择」配奖杯/皇冠图标</td>
+      <td>GP Metadata；Apple 2.3.7</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>跨平台元素</b></td>
+      <td>App Store 图里出现安卓机模/Google Play 图标；GP 图里出现 iPhone 机模</td>
+      <td>Apple 2.3.10；GP 机模规范</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>版权与肖像</b></td>
+      <td>未授权明星/网红肖像、流媒体 logo、竞品 UI 照搬</td>
+      <td>GP 冒充/知识产权；Apple 5.2.1</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>其他</b></td>
+      <td>截图使用真实用户头像/昵称/评论；App 改版后截图未同步</td>
+      <td>Apple 2.3.9 / 2.3；GP 欺骗行为</td>
+      <td><span class="lv lv-m">中危</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============ 2 ============ -->
+<h2>2. Google Play：违规图片清单</h2>
+<p class="lead">素材必须适合普通受众（general audience）。</p>
+
+<table>
+  <thead>
+    <tr><th style="width:24%">违规类别</th><th>具体表现 / 判定标准</th><th style="width:9%">风险</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>性暗示 / 性化描绘</b></td>
+      <td>胸部、臀部、生殖器或其他被性化部位——<b>真人与插画一视同仁</b>；性挑逗姿势；衣着极度暴露。擦边即算，不要求露点。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>图形暴力 / 毒品</b></td>
+      <td>图标、宣传图、视频中突出描绘暴力或暴力威胁；描绘违禁药物使用。EDSA 豁免在商店素材中不成立。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>排名 / 成绩暗示</b></td>
+      <td><code>#1</code> <code>Best</code> <code>Top</code> <code>Popular</code> <code>年度应用</code>、<code>New</code>、获奖图标、编辑推荐字样。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>价格 / 促销 / CTA</b></td>
+      <td><code>X% off</code> <code>返现</code> <code>限时免费</code> <code>立即下载</code>。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>冒充 / 误导关联</b></td>
+      <td>图标与既有产品高度相似；用企业 logo 暗示官方身份；无新消息却加未读红点、加下载箭头。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>素材与实机不符</b></td>
+      <td>截图非真实 App 界面；展示 App 不具备的功能；旧版本 UI 未同步。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>版权 / 格式字符</b></td>
+      <td>未授权素材；标题图标中出现 emoji、颜文字、重复特殊符号（★ ☆ ！！）、非品牌全大写。</td>
+      <td><span class="lv lv-m">中危</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <b>硬性规格：</b>图标 512×512 32-bit PNG 带 alpha ≤1024KB；Feature Graphic 1024×500 JPEG/24-bit PNG 无 alpha；截图 ≥2 张、单边 320–3840px、长边 ≤ 短边 2 倍；含文字的截图需按语种分别出图。
+</div>
+
+<!-- ============ 3 ============ -->
+<h2>3. App Store：违规图片清单</h2>
+<p class="lead">核心是「准确元数据」+「4+ 分级铁律」。</p>
+
+<table>
+  <thead>
+    <tr><th style="width:12%">条款</th><th style="width:22%">规则</th><th>对图片素材的要求</th><th style="width:9%">风险</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>2.3.8</b></td>
+      <td>元数据须保持 4+</td>
+      <td><b>短剧头号杀手。</b>即便 App 17+，图标、截图、预览仍须适合所有受众——掐脖、掌掴、持刀、血迹、吻戏特写一律不可用。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>2.3.3</b></td>
+      <td>截图须展示使用中</td>
+      <td>不能只是标题封面、登录页、启动页；底层必须是真实界面，允许文字叠加。经验值：整套图 ≥60% 含可见 UI。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>2.3.7</b></td>
+      <td>禁价格与无关词</td>
+      <td>名称、副标题、截图、预览不得含价格、商标术语、热门 App 名或无法证实的产品声明。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>2.3.2</b></td>
+      <td>内购须明示</td>
+      <td>截图/预览须标明哪些剧集、订阅需额外付费。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>2.3.10</b></td>
+      <td>禁其他平台</td>
+      <td>元数据不得出现其他移动平台或替代应用市场的名称、图标、图像（安卓机模、Google Play 图标均禁止）。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>2.3.9</b></td>
+      <td>授权与虚构信息</td>
+      <td>须有权使用全部素材；必须显示虚构账户信息，不得用真实个人数据。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>2.3.1</b></td>
+      <td>禁误导性营销</td>
+      <td>宣传 App 不提供的内容或虚假价格 → 下架 + 禁止替代分发 + <b>开发者账号终止</b>。</td>
+      <td><span class="lv lv-h">高危</span></td>
+    </tr>
+    <tr>
+      <td><b>1.1 / 1.4</b></td>
+      <td>内容安全</td>
+      <td>1.1.4 公然色情；1.1.2 写实暴力残害；1.1.1/1.1.5 歧视与宗教；1.4.3/1.4.5 赌博、烟草、违禁药物。</td>
+      <td><span class="lv lv-m">中危</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <b>硬性规格：</b>iPhone 6.9" 1260×2736（另接受 1290×2796、1320×2868）；iPad 13" 2064×2752；不接受透明通道与动图；预览视频只能用 App 自身屏幕录制画面（2.3.4）。
+</div>
+
+<footer>
+  政策依据：Google Play Developer Program Policy（Metadata / 不当内容 / Store listing best practices）、Apple App Review Guidelines（1.1、1.4、2.3、5.2）。<br>
+  政策会动态调整，重大素材改动前建议回查官方原文；本清单为内部执行标准，最终审核结论以平台为准。
+</footer>
+
+</div>
+</body>
+</html>
