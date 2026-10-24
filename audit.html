@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DramaBox 商店素材风险审计 · 分语言版</title>
+<style>
+:root{--ink:#1a1a2e;--sub:#5a5a72;--line:#e6e6ef;--bg:#f7f7fb;--card:#fff;--red:#d63031;--redbg:#fdecec;--org:#e17055;--orgbg:#fef3ef;--yel:#b8860b;--yelbg:#fdf8e8;--grn:#1b7a43;--grnbg:#eaf6ef;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;padding:32px 16px;}
+.wrap{max-width:1080px;margin:0 auto;}
+h1{font-size:26px;margin-bottom:6px;}
+h2{font-size:20px;margin:36px 0 12px;padding-left:12px;border-left:4px solid var(--ink);}
+h3{font-size:16px;margin:18px 0 8px;}
+.meta{color:var(--sub);font-size:13px;margin-bottom:20px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border-radius:10px;overflow:hidden;margin-bottom:8px;}
+th{background:#20203a;color:#fff;text-align:left;padding:10px 12px;font-weight:600;}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+.q{font-style:normal;background:#f4f4fa;border-radius:6px;padding:2px 6px;display:inline-block;margin:2px 0;}
+.tag{display:inline-block;border-radius:20px;padding:1px 10px;font-size:12px;font-weight:600;white-space:nowrap;}
+.hi{background:var(--redbg);color:var(--red);}
+.md{background:var(--orgbg);color:var(--org);}
+.lo{background:var(--yelbg);color:var(--yel);}
+.loc{background:#ececf5;color:var(--sub);border-radius:6px;padding:1px 8px;font-size:12px;}
+.note{background:var(--yelbg);border:1px solid #f0e2b0;border-radius:10px;padding:12px 16px;font-size:13px;margin:12px 0;}
+.top{background:var(--redbg);border:1px solid #f3c4c4;border-radius:10px;padding:14px 18px;margin:10px 0;}
+.top b{color:var(--red);}
+ul{padding-left:20px;}
+li{margin:4px 0;}
+.footer{color:var(--sub);font-size:12px;margin-top:32px;border-top:1px solid var(--line);padding-top:14px;}
+code{background:#f0f0f7;border-radius:4px;padding:1px 6px;font-size:13px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>DramaBox 商店素材风险审计 · 分语言版</h1>
+<div class="meta">审计对象：Google Play（中文版 listing）+ App Store 8 个地区（US / JP / BR / ES / DE / KR / ID / TH，ID·TH 与 US 共用英文素材）｜ 审计日期：2026-10-24 ｜ 数据来源：Play 商店页面原文、iTunes Lookup API 各地区返回</div>
+
+<div class="top">
+<b>最优先处理 TOP 3</b>（跨语言通用问题另见文末）：
+<ol>
+<li><b>英文区截图5</b>《Divorced at the Wedding Day》海报女主嘴角血迹 —— 命中 Apple 2.3.8（元数据须 4+），可能直接拒审甚至下架</li>
+<li><b>英文区描述 ad-free streaming</b> —— 商店页面自己标注“含广告”，宣传与事实矛盾，属欺骗性元数据（Apple 2.3.1 / GP 欺骗行为），可致下架 + 账号终止</li>
+<li><b>日文区描述「毎日無料」系列免费承诺</b> —— 与订阅付费模式冲突，是投诉与差评高发点，也构成虚假宣传</li>
+</ol>
+</div>
+
+<h2>一、中文版（Google Play，面向华语用户）</h2>
+<div class="card">
+<p style="margin-bottom:8px;"><span class="loc">语言：中文</span> <span class="loc">商店：Google Play</span> <span class="loc">分级：12+</span> 判定基准：素材与文案须适合普通受众，且元数据不得含排名 / CTA / 不可证实的荣誉。</p>
+<table>
+<tr><th style="width:34%">问题截图 / 文案（原文）</th><th style="width:12%">位置</th><th style="width:38%">风险原因</th><th style="width:10%">等级</th><th style="width:6%">依据</th></tr>
+<tr><td><span class="q">DramaBox - 全网热门短剧、海量精品短视频随心看</span></td><td>应用标题</td><td>「热门」属 Popular 类成绩暗示词，GP 明令禁止出现在标题 / 图标</td><td><span class="tag hi">高</span></td><td>Metadata</td></tr>
+<tr><td><span class="q">无广告播放，观看不中断，追剧达人力荐！</span></td><td>描述</td><td>商店页同时标注「包含广告」，宣传与实际功能不符 → 欺骗行为</td><td><span class="tag hi">高</span></td><td>欺骗行为</td></tr>
+<tr><td><span class="q">开通订阅免费观看所有精品短剧</span></td><td>描述</td><td>「所有 / 免费」若存在单点付费剧集即虚假承诺</td><td><span class="tag hi">高</span></td><td>欺骗行为</td></tr>
+<tr><td><span class="q">从独立电影到屡获殊荣的电视剧</span></td><td>描述</td><td>荣誉类表述无法证实</td><td><span class="tag md">中</span></td><td>Metadata</td></tr>
+<tr><td><span class="q">还等什么？立即下载我们的APP</span></td><td>描述</td><td>CTA（下载号召）为 GP 素材文案明禁项</td><td><span class="tag md">中</span></td><td>Metadata</td></tr>
+<tr><td>截图4「推荐速览」：古装男主从背后搂抱 / 拉扯女主</td><td>截图</td><td>胁迫式亲密构图，12+ 分级下属性暗示灰区偏高危</td><td><span class="tag md">中</span></td><td>不当内容</td></tr>
+<tr><td>截图3「好剧精选」封面墙：吻戏特写、低胸装、雨中强拥</td><td>截图</td><td>封面画面批量擦边，与普通受众标准冲突</td><td><span class="tag md">中</span></td><td>不当内容</td></tr>
+<tr><td>截图5「沉浸追剧」：<span class="q">高清曼妙体验</span> + 露肩毛绒装女主被抱住</td><td>截图</td><td>「曼妙」指向身材 + 亲密构图，轻度擦边</td><td><span class="tag lo">低</span></td><td>不当内容</td></tr>
+<tr><td>截图6「个人播单」：《我心悦你》等同床 / 床上暗示封面</td><td>截图</td><td>亲密暗示画面</td><td><span class="tag lo">低</span></td><td>不当内容</td></tr>
+<tr><td>截图1「热播爽剧追不停」大字海报，右下仅露一角 App UI</td><td>截图</td><td>纯海报式构图与「截图须反映实际体验」有出入</td><td><span class="tag lo">低</span></td><td>Metadata</td></tr>
+</table>
+</div>
+
+<h2>二、英文版（App Store 美区，印尼 / 泰区共用同一套）</h2>
+<div class="card">
+<p style="margin-bottom:8px;"><span class="loc">语言：英文</span> <span class="loc">商店：App Store（US / ID / TH）</span> <span class="loc">分级：17+</span> 判定基准：截图 / 预览必须保持 4+ 水平（2.3.8），描述不得含不可证实声明（2.3.7）、不得误导（2.3.1）。</p>
+<table>
+<tr><th style="width:34%">问题截图 / 文案（原文）</th><th style="width:12%">位置</th><th style="width:38%">风险原因</th><th style="width:10%">等级</th><th style="width:6%">依据</th></tr>
+<tr><td>截图5《Divorced at the Wedding Day》海报：女主嘴角<b>明显血迹</b></td><td>截图</td><td>暴力血腥元素出现在元数据中，直接命中 2.3.8 的 4+ 铁律 —— 全部素材中最高危</td><td><span class="tag hi">高</span></td><td>2.3.8</td></tr>
+<tr><td><span class="q">Enjoy ad-free streaming and uninterrupted viewing.</span></td><td>描述</td><td>实际含广告，构成误导性元数据，可致下架 + 账号终止</td><td><span class="tag hi">高</span></td><td>2.3.1</td></tr>
+<tr><td>截图2 剧名：<span class="q">The Wrong Twin Slept Into Bed?!</span>、<span class="q">Horny …</span></td><td>截图</td><td>性暗示文字出现在截图内，4+ 标准下不可接受</td><td><span class="tag hi">高</span></td><td>2.3.8</td></tr>
+<tr><td>截图4/6 剧名：<span class="q">Office Temptation</span>、<span class="q">Love You to Death</span>、<span class="q">Secret Baby, Mistaken Identity</span></td><td>截图</td><td>性暗示（Temptation）与暴力暗示（to Death）题材词在截图中可见</td><td><span class="tag md">中</span></td><td>2.3.8</td></tr>
+<tr><td>截图2/6 封面：低胸吊带女性特写、<span class="q">Secret Love: Unfaithful</span></td><td>截图</td><td>暴露服装 + 婚外情题材，性暗示风险</td><td><span class="tag md">中</span></td><td>2.3.8</td></tr>
+<tr><td><span class="q">From indie films to award-winning TV series</span></td><td>描述</td><td>无法证实的荣誉声明</td><td><span class="tag md">中</span></td><td>2.3.7</td></tr>
+<tr><td><span class="q">Top Picks For You</span></td><td>截图5</td><td>「Top」类成绩词属不可证实的产品声明</td><td><span class="tag md">中</span></td><td>2.3.7</td></tr>
+<tr><td>截图4：<span class="q">Explore Exclusive Orginals</span></td><td>截图</td><td>拼写错误（应为 Originals），元数据准确性硬伤，影响审核观感</td><td><span class="tag lo">低</span></td><td>2.3.1</td></tr>
+<tr><td><span class="q">Download our app now and start watching the best short movies…</span></td><td>描述</td><td>下载 CTA + 「best」最高级声明（App Store 相对宽松，GP 区同款文案属硬违规）</td><td><span class="tag lo">低</span></td><td>2.3.7</td></tr>
+</table>
+</div>
+
+<h2>三、日文版（App Store 日区）</h2>
+<div class="card">
+<p style="margin-bottom:8px;"><span class="loc">语言：日文</span> <span class="loc">商店：App Store（JP）</span> <span class="loc">分级：17+</span> 文案整体比英文版克制（无 ad-free、无 award-winning），主要风险集中在免费承诺。</p>
+<table>
+<tr><th style="width:34%">问题截图 / 文案（原文）</th><th style="width:12%">位置</th><th style="width:38%">风险原因</th><th style="width:10%">等级</th><th style="width:6%">依据</th></tr>
+<tr><td><span class="q">毎日無料で楽しもう！</span><br><span class="q">ログインするだけで、毎日さまざまな作品を無料で楽しめます。</span><br><span class="q">□ 毎日無料で視聴できる</span></td><td>描述</td><td>三处「每天免费」承诺，与订阅付费 / 单集解锁模式冲突；用户因「免费」下载后发现收费，投诉与拒审风险双高</td><td><span class="tag hi">高</span></td><td>2.3.1</td></tr>
+<tr><td>标题：<span class="q">ショートドラマ見放題</span>（无限看）</td><td>应用标题</td><td>「見放題」= 不限次数观看，若实际有次数 / 解锁限制，标题即构成误导</td><td><span class="tag md">中</span></td><td>2.3.1</td></tr>
+<tr><td>截图2：<span class="q">3000時間以上のオリジナル作品</span> + 剧集墙（《身代わり花嫁》等）</td><td>截图</td><td>「3000小时以上」数量声明需可证实；剧集封面含轻度亲密构图</td><td><span class="tag lo">低</span></td><td>2.3.7 / 2.3.8</td></tr>
+<tr><td>截图5「自分だけの視聴リスト」《警告！葉蓮の逆襲》红裙女主海报</td><td>截图</td><td>构图正常，暂无明显违规；标题「警告！」风格激进但可接受</td><td><span class="tag lo">低</span></td><td>—</td></tr>
+</table>
+</div>
+
+<h2>四、葡文版（App Store 巴西区）</h2>
+<div class="card">
+<p style="margin-bottom:8px;"><span class="loc">语言：葡文（巴西）</span> <span class="loc">商店：App Store（BR）</span> <span class="loc">分级：+17</span></p>
+<table>
+<tr><th style="width:34%">问题截图 / 文案（原文）</th><th style="width:12%">位置</th><th style="width:38%">风险原因</th><th style="width:10%">等级</th><th style="width:6%">依据</th></tr>
+<tr><td><span class="q">Baixe o DramaBox agora e abra a porta para um universo mágico de vídeos curtos!</span></td><td>描述</td><td>下载 CTA（App Store 相对宽松；若该文案同步到 Google Play 葡文版则为硬违规）</td><td><span class="tag lo">低</span></td><td>Metadata</td></tr>
+<tr><td>截图2 剧集墙（Cena Atual / Favoritos UI）中多张亲密封面：拥抱、床戏、低胸</td><td>截图</td><td>封面画面擦边，4+ 铁律下属灰区偏高</td><td><span class="tag md">中</span></td><td>2.3.8</td></tr>
+<tr><td>截图5「Descubra Dramas Sob Medida」：男性枕腿躺卧于女主演白裙旁的暧昧构图</td><td>截图</td><td>姿势暧昧，与 ES / DE 共用同一画面（一次修改三区生效）</td><td><span class="tag md">中</span></td><td>2.3.8</td></tr>
+</table>
+</div>
+
+<h2>五、西文版（App Store 西班牙区）</h2>
+<div class="card">
+<p style="margin-bottom:8px;"><span class="loc">语言：西文</span> <span class="loc">商店：App Store（ES）</span> <span class="loc">分级：17+</span></p>
+<table>
+<tr><th style="width:34%">问题截图 / 文案（原文）</th><th style="width:12%">位置</th><th style="width:38%">风险原因</th><th style="width:10%">等级</th><th style="width:6%">依据</th></tr>
+<tr><td><span class="q">un universo de darmas cortos</span></td><td>描述首句</td><td><b>拼写错误</b>：darmas 应为 dramas —— 与英文区 Orginals 同类元数据准确性硬伤</td><td><span class="tag md">中</span></td><td>2.3.1</td></tr>
+<tr><td><span class="q">Descarga DramaBox ahora y abre la puerta a un universo de magia de vídeos cortos.</span></td><td>描述</td><td>下载 CTA（同葡文版逻辑）</td><td><span class="tag lo">低</span></td><td>Metadata</td></tr>
+<tr><td>截图2 剧集墙：《Matrimonio por Venganza》《El Regreso del Reino Dominante》等 + 右下角床上拥吻封面</td><td>截图</td><td>复仇题材海报 + 拥吻画面，4+ 标准下擦边</td><td><span class="tag md">中</span></td><td>2.3.8</td></tr>
+<tr><td>截图5「Descubra episodios a su medida」：与 BR / DE 同款男性枕腿构图</td><td>截图</td><td>姿势暧昧（三区共用）</td><td><span class="tag md">中</span></td><td>2.3.8</td></tr>
+</table>
+</div>
+
+<h2>六、德文版（App Store 德区）</h2>
+<div class="card">
+<p style="margin-bottom:8px;"><span class="loc">语言：德文</span> <span class="loc">商店：App Store（DE）</span> <span class="loc">分级：17+</span> 文案版面最干净：未检出 ad-free / 免费 / 荣誉 / CTA 命中，可作其他语言改写的基准模板。</p>
+<table>
+<tr><th style="width:34%">问题截图 / 文案（原文）</th><th style="width:12%">位置</th><th style="width:38%">风险原因</th><th style="width:10%">等级</th><th style="width:6%">依据</th></tr>
+<tr><td>截图5「Maßgeschneiderte Dramen Entdecken」：与 BR / ES 同款男性枕腿构图</td><td>截图</td><td>姿势暧昧（三区共用同一画面，仅文案不同）</td><td><span class="tag md">中</span></td><td>2.3.8</td></tr>
+<tr><td>截图2 剧集墙（Mein Vermächtnis 等）中的亲密封面</td><td>截图</td><td>封面擦边，灰区</td><td><span class="tag lo">低</span></td><td>2.3.8</td></tr>
+</table>
+</div>
+
+<h2>七、韩文版（App Store 韩区）</h2>
+<div class="card">
+<p style="margin-bottom:8px;"><span class="loc">语言：韩文</span> <span class="loc">商店：App Store（KR）</span> <span class="loc">分级：17+</span> 截图最干净的地区之一。</p>
+<table>
+<tr><th style="width:34%">问题截图 / 文案（原文）</th><th style="width:12%">位置</th><th style="width:38%">风险原因</th><th style="width:10%">等级</th><th style="width:6%">依据</th></tr>
+<tr><td><span class="q">지금 바로 앱을 다운로드하고, 취향 저격 드라마를 마음껏 즐겨보세요!</span></td><td>描述</td><td>下载 CTA</td><td><span class="tag lo">低</span></td><td>Metadata</td></tr>
+<tr><td>截图2「3000시간 이상 오리지널 영상」剧集墙</td><td>截图</td><td>数量声明需可证实；封面整体偏干净</td><td><span class="tag lo">低</span></td><td>2.3.7</td></tr>
+<tr><td>截图5「고화질 스트리밍 체험」《기억을 잃은 재벌딸》海报</td><td>截图</td><td>暂无明显违规</td><td><span class="tag lo">低</span></td><td>—</td></tr>
+</table>
+</div>
+
+<h2>八、跨语言通用问题与整改提示</h2>
+<div class="card">
+<ul>
+<li><b>同一问题多语言复发</b>：下载 CTA 在葡 / 西 / 韩描述中都出现，修改时应建立「禁用词多语言对照表」一次清理所有 locale，而不是发现一处改一处。</li>
+<li><b>共用画面三区联动</b>：BR / ES / DE 截图5 为同一画面，改一次图三个地区同时合规；反过来，任何一张问题图也是三区同时风险。</li>
+<li><b>英文 locale 是重灾区</b>：ad-free、award-winning、血迹海报、性暗示剧名全部集中在英文素材；其他语言改写时不要「回译」英文版描述，否则会把违规话术带回去。</li>
+<li><b>德文版值得当模板</b>：文案最克制，其他语言描述改写可参照其措辞风格。</li>
+<li><b>「免费 / 無料 / grátis / 무료」全语言高危</b>：任何语言的免费承诺都必须与实际付费墙严格对齐，建议统一改为「每日更新 / new episodes daily」类事实表述。</li>
+<li><b>中国区未上架</b>（iTunes Lookup 返回空），无需维护简中 App Store 素材；中文素材只需对齐 Google Play。</li>
+</ul>
+</div>
+
+<div class="footer">
+数据来源：Google Play listing 原文（2026-10-24 抓取）；iTunes Lookup API（country=us/jp/br/es/de/kr/id/th）。分级依据：Google Play 内容分级 12+；App Store 各区 17+（BR 标注 +17）。本页为内部合规参考，最终判定以 Google Play 与 Apple 官方审核为准。
+</div>
+
+</div>
+</body>
+</html>

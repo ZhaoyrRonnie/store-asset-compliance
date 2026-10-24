@@ -4,9 +4,15 @@
 
 ## 在线查看
 
-在线查看：https://zhaoyrronnie.github.io/store-asset-compliance/
+- 合规红线清单：https://zhaoyrronnie.github.io/store-asset-compliance/
+- DramaBox 商店素材风险审计（分语言版）：https://zhaoyrronnie.github.io/store-asset-compliance/audit.html
 
-## 内容结构
+## 文件说明
+
+| 文件 | 内容 |
+| --- | --- |
+| `index.html` | 商店素材合规红线清单（通用规则） |
+| `audit.html` | DramaBox 实例审计：Google Play 中文版 + App Store 8 地区（英/日/葡/西/德/韩）逐语言风险表 |
 
 | 章节 | 内容 |
 | --- | --- |
