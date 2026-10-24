@@ -4,7 +4,7 @@
 
 ## 在线查看
 
-开启 GitHub Pages 后访问：`https://<用户名>.github.io/store-asset-compliance/`
+在线查看：https://zhaoyrronnie.github.io/store-asset-compliance/
 
 ## 内容结构
 
